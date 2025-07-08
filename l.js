@@ -75,7 +75,7 @@ async function signin() {
     document.getElementById('load').classList.add('load');
     // Redirect after a short delay if you want
     // await delay(1000);
-    window.location.href = "http://127.0.0.1:5500/source/c.html";
+    window.location.href = "https://ayaan-creator-web.github.io/StakChat/";
 }
 
 function signup(newId) {
