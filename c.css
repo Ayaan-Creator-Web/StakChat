@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* A common, clean font */
+    display: flex; /* Use flexbox for the whole page to arrange sidebar and chatarea */
+    height: 100vh; /* Make the body take full viewport height */
+    overflow: hidden; /* Hide overflow on the body as sidebar/chatarea will have their own */
+}
+
+#sidebar {
+    width: 280px; /* Slightly wider sidebar, adjust as needed */
+    background-color: #f0f2f5; /* Light grey background for the sidebar */
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.25); /* Stronger shadow for better visibility */
+    z-index: 10; /* Ensure the sidebar's shadow is prominent */
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+    overflow-y: auto; /* Enable scrolling for sidebar content */
+    display: flex; /* Flex container for sidebar content */
+    flex-direction: column; /* Stack sidebar content vertically */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+#chatarea {
+    flex-grow: 1; /* Make chat area take up all remaining space */
+    background-color: #ffffff; /* White background for the chat area */
+    padding: 20px;
+    display: flex; /* Use flexbox for chat area content */
+    flex-direction: column; /* Stack chat elements vertically */
+    overflow-y: auto; /* Enable scrolling for chat messages */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* --- Basic Styling for potential content within sidebar and chatarea --- */
+
+/* Sidebar content example */
+#sidebar h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #555;
+    transition: background-color 0.2s ease;
+}
+
+#sidebar li:hover {
+    background-color: #e0e2e5;
+    border-radius: 4px;
+}
+
+/* Chat Area content example */
+#chatarea h1 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: center;
+}
+
+.messages {
+    flex-grow: 1; /* Allows messages to take available space and push input down */
+    overflow-y: auto; /* For scrolling chat messages */
+    margin-bottom: 15px; /* Space between messages and input */
+    /* Added flexbox properties here */
+    display: flex; /* Make messages a flex container */
+    flex-direction: column; /* Stack messages vertically */
+    align-items: flex-start; /* Default alignment for all messages (left) */
+}
+
+.messages p {
+    font-size: 1.1em; /* Increased font size */
+    background-color: #e6e6e6;
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 8px;
+    max-width: 70%;
+    /* Removed align-self: flex-start; here as it's now handled by parent align-items */
+    word-wrap: break-word;
+}
+
+/* Example for a user's own messages */
+.messages p.own-message {
+    background-color: #dcf8c6;
+    align-self: flex-end; /* Align to the right, overriding parent's align-items */
+}
+
+.chat-input {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input[type="text"] {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 1em;
+}
+
+.chat-input button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+.chat-input button:hover {
+    background-color: #0056b3;
+}
