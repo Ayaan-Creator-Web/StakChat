@@ -21,7 +21,7 @@ const user = JSON.parse(localStorage.getItem('StakChat-User'));
 
 async function defineFriends() {
     if (!user) {
-        window.location.href = 'http://127.0.0.1:5500/login/l.html';
+        window.location.href = 'https://ayaan-creator-web.github.io/StakChat/l.html';
     } else {
         try {
             friends = await fetch(`${API_BASE_URL}/users/${user.username}`).then(res => res.json());
