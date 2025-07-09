@@ -1,37 +1,34 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif; /* A common, clean font */
-    display: flex; /* Use flexbox for the whole page to arrange sidebar and chatarea */
-    height: 100vh; /* Make the body take full viewport height */
-    overflow: hidden; /* Hide overflow on the body as sidebar/chatarea will have their own */
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
 }
 
 #sidebar {
-    width: 280px; /* Slightly wider sidebar, adjust as needed */
-    background-color: #f0f2f5; /* Light grey background for the sidebar */
+    width: 280px;
+    background-color: #f0f2f5;
     padding: 20px;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.25); /* Stronger shadow for better visibility */
-    z-index: 10; /* Ensure the sidebar's shadow is prominent */
-    flex-shrink: 0; /* Prevent sidebar from shrinking */
-    overflow-y: auto; /* Enable scrolling for sidebar content */
-    display: flex; /* Flex container for sidebar content */
-    flex-direction: column; /* Stack sidebar content vertically */
-    box-sizing: border-box; /* Include padding in the width calculation */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+    flex-shrink: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
 #chatarea {
-    flex-grow: 1; /* Make chat area take up all remaining space */
-    background-color: #ffffff; /* White background for the chat area */
+    flex-grow: 1;
+    background-color: #ffffff;
     padding: 20px;
-    display: flex; /* Use flexbox for chat area content */
-    flex-direction: column; /* Stack chat elements vertically */
-    overflow-y: auto; /* Enable scrolling for chat messages */
-    box-sizing: border-box; /* Include padding in the width calculation */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-sizing: border-box;
+    min-height: calc(100vh - 40px);
 }
 
-/* --- Basic Styling for potential content within sidebar and chatarea --- */
-
-/* Sidebar content example */
 #sidebar h2 {
     color: #333;
     margin-top: 0;
@@ -57,7 +54,6 @@ body {
     border-radius: 4px;
 }
 
-/* Chat Area content example */
 #chatarea h1 {
     color: #333;
     margin-top: 0;
@@ -67,30 +63,24 @@ body {
 }
 
 .messages {
-    flex-grow: 1; /* Allows messages to take available space and push input down */
-    overflow-y: auto; /* For scrolling chat messages */
-    margin-bottom: 15px; /* Space between messages and input */
-    /* Added flexbox properties here */
-    display: flex; /* Make messages a flex container */
-    flex-direction: column; /* Stack messages vertically */
-    align-items: flex-start; /* Default alignment for all messages (left) */
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
 }
 
 .messages p {
-    font-size: 1.1em; /* Increased font size */
     background-color: #e6e6e6;
     padding: 10px 15px;
     border-radius: 18px;
     margin-bottom: 8px;
     max-width: 70%;
-    /* Removed align-self: flex-start; here as it's now handled by parent align-items */
+    align-self: flex-start;
     word-wrap: break-word;
 }
 
-/* Example for a user's own messages */
 .messages p.own-message {
     background-color: #dcf8c6;
-    align-self: flex-end; /* Align to the right, overriding parent's align-items */
+    align-self: flex-end;
 }
 
 .chat-input {
